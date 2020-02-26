@@ -9619,6 +9619,11 @@ react-error-overlay@^6.0.6:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.6.tgz#ac4d9dc4c1b5c536c2c312bf66aa2b09bfa384e2"
   integrity sha512-Yzpno3enVzSrSCnnljmr4b/2KUQSMZaPuqmS26t9k4nW7uwJk6STWmH9heNjPuvqUTO3jOSPkHoKgO4+Dw7uIw==
 
+react-input-just-numbers@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-input-just-numbers/-/react-input-just-numbers-1.0.3.tgz#4bf68be4c7241e853ae0db501d8893fbf882779e"
+  integrity sha512-ic2Cf1j3LosDxyN1Kn6vLkJsGx0WQrHCIalaTuxN1OC0EwoWrFUB/2Vtb48Nk0FLxzc7BKntNWaKgTeWDJZbiw==
+
 react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"

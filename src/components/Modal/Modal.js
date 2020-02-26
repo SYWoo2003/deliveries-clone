@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import './Modal.scss';
+
 import ReactTransitionGroup from 'react-addons-css-transition-group';
 
-import dropOption from '../../data/delivery.json';
+//import dropOption from '../../data/delivery.json';
 
 
 
@@ -156,6 +156,21 @@ const Modal = ({ isOpen, close }) => {
     //const [name, setName] = useState('');
     //const [invnum, setInvnum] = useState('');
 
+    const [checkevent, setCheckevent] = useState('');
+    const a = 1;
+    const Checkevent = () => {
+        if (a == 1)
+            setCheckevent('1');
+        else
+            close();
+    }
+
+    const Alertmsg = styled.span`
+    font-size:14.4px;
+    margin-left:86px;
+    text-align:center;
+    color:#d40511;`
+
     return (
         <>
             {
@@ -169,6 +184,13 @@ const Modal = ({ isOpen, close }) => {
                         <ModalCom>
                             <Title>택배 추가</Title>
                             <Content>
+                                {
+                                    checkevent
+                                        ?
+                                        <Alertmsg>내용을 모두 입력해주세요.</Alertmsg>
+                                        :
+                                        null
+                                }
                                 <Modalel>
                                     <Eltitle>물건 이름</Eltitle>
                                     <ElInput placeholder='상품 이름 입력' />
@@ -190,7 +212,7 @@ const Modal = ({ isOpen, close }) => {
 
                             </Content>
                             <BtnWrap>
-                                <button onClick={close}> 추가하기</button>
+                                <button onClick={Checkevent}> 추가하기</button>
                             </BtnWrap>
                         </ModalCom>
                     </ReactTransitionGroup>
