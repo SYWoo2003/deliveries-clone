@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import './Modal.scss';
 import ReactTransitionGroup from 'react-addons-css-transition-group';
 
+import dropOption from '../../data/delivery.json';
 
 const Modal = ({ isOpen, close }) => {
 
@@ -36,7 +37,7 @@ const Modal = ({ isOpen, close }) => {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 500px;
+        width: 350px;
         border-radius: 10px;
         background-color: white;
         box-shadow: 0px 3px 6px #00000060;
@@ -75,9 +76,9 @@ const Modal = ({ isOpen, close }) => {
     `
 
     const Modalel = styled.p`
-        padding: 8px;
+        padding: 4px 8px 0px 8px;
         font-size: 12pt;
-        color: #999;
+        color: #000000;
     `
 
     const BtnWrap = styled.div`
@@ -110,10 +111,33 @@ const Modal = ({ isOpen, close }) => {
         `
 
 
+    const Eltitle = styled.span`
+        font-size:16.7px;
+        font-weight:600;
+    `
+
+    const ElInput = styled.input`
+        float:right;
+        font-size:14.7px;
+        padding:2px 0 2px 3px;
+        width:193px;
+        &:focus{
+            outline:none;
+        }
+    `
+
+    const Drop = styled.select`
+        font-size:14.7px;
+        padding:0 0 3px 1px;
+        width:200px;
+        float:right;
+        &:focus{
+            outline:none;
+        }
+    `
 
     //const [name, setName] = useState('');
     //const [invnum, setInvnum] = useState('');
-
 
 
     return (
@@ -130,13 +154,24 @@ const Modal = ({ isOpen, close }) => {
                             <Title>택배 추가</Title>
                             <Content>
                                 <Modalel>
-                                    <input placeholder='상품 이름 입력' />
-                                    <br />
-                                    <input placeholder='숫자만 입력 가능' autocomplete='off' />
-                                    <br />
-                                    <input />
-
+                                    <Eltitle>물건 이름</Eltitle>
+                                    <ElInput placeholder='상품 이름 입력' />
                                 </Modalel>
+                                <Modalel>
+                                    <Eltitle>운송장 번호</Eltitle>
+                                    <ElInput placeholder='숫자만 입력 가능' />
+                                </Modalel>
+                                <Modalel>
+                                    <Eltitle>택배사 이름</Eltitle>
+                                    <Drop>
+                                        <option value="" disabled selected hidden>택배사 선택</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </Drop>
+                                </Modalel>
+
+
                             </Content>
                             <BtnWrap>
                                 <button onClick={close}> 추가하기</button>
