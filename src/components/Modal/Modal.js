@@ -125,13 +125,15 @@ const Modal = ({ isOpen, close }) => {
         width:193px;
         border:2px solid #eeeeee; 
         border-radius:3px;
+        transition: all 0.8s;
         &:focus{
             outline:none;
+            transition: all 0.8s;
             border:2px solid #ffcc00;
         }
          ::-webkit-inner-spin-button,
          ::-webkit-outer-spin-button{
-        -webkit-appearance: none; 
+            -webkit-appearance: none; 
          }
 
     `
@@ -143,8 +145,10 @@ const Modal = ({ isOpen, close }) => {
         float:right;
         border:2px solid #eeeeee;
         border-radius:3px;
+        transition: all 0.8s;
         &:focus{
             outline:none;
+            transition: all 0.8s;
             border:2px solid #ffcc00;
         }
     `
