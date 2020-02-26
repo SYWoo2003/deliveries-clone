@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import './Modal.scss';
+import ReactTransitionGroup from 'react-addons-css-transition-group';
+
 
 const Modal = ({ isOpen, close }) => {
 
@@ -11,6 +14,21 @@ const Modal = ({ isOpen, close }) => {
         bottom: 0;
         right: 0;
         background-color:#000000aa;
+
+        &.Modal-anim-enter {
+            opacity: 0.00;
+            transition: all 0.3s;
+        }
+        &.Modal-anim-enter.Modal-anim-enter-active {
+            opacity: 1;
+        }
+        &.Modal-anim-leave {
+            opacity: 1;
+            transition: all 0.3s;
+        }
+        &.Modal-anim-leave.Modal-anim-leave-active {
+            opacity: 0.00;
+        }
     `
 
     const ModalCom = styled.div`
@@ -22,6 +40,26 @@ const Modal = ({ isOpen, close }) => {
         border-radius: 10px;
         background-color: white;
         box-shadow: 0px 3px 6px #00000060;
+
+
+        &.Modal-anim-enter {
+            opacity: 0.00;
+            transform: translate(-50%, -50%) scale(1);
+            transition: all 0.5s;
+        }
+        &.Modal-anim-enter.Modal-anim-enter-active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        &.Modal-anim-leave {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            transition: all 0.5s;
+        }  
+        &.Modal-anim-leave.Modal-anim-leave-active {
+            opacity: 0.00;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
     `
 
     const Title = styled.p`
@@ -47,7 +85,7 @@ const Modal = ({ isOpen, close }) => {
         margin-top: 8px;
 
         button{
-                    width: 100%;
+                width: 100%;
                 padding: 12px 0;
                 border-radius: 0 0 10px 10px;
                 background-color: #FFCC00;
@@ -60,10 +98,10 @@ const Modal = ({ isOpen, close }) => {
                 cursor: pointer;
     
             &:hover{
-                    background - color: #eebe00;
+                    background-color: #eebe00;
             }
             &:active{
-                    background - color: #d6ab00;
+                    background-color: #d6ab00;
             }
             &:focus{
                     outline:none;
@@ -82,7 +120,11 @@ const Modal = ({ isOpen, close }) => {
         <>
             {
                 isOpen ?
-                    <>
+                    <ReactTransitionGroup
+                        transitionName={'Modal-anim'}
+                        transitionEnterTimeout={200}
+                        transitionLeaveTimeout={200}
+                    >
                         <Modaloverlay onClick={close} />
                         <ModalCom>
                             <Title>택배 추가</Title>
@@ -92,7 +134,7 @@ const Modal = ({ isOpen, close }) => {
                                     <br />
                                     <input placeholder='숫자만 입력 가능' autocomplete='off' />
                                     <br />
-                                    <input type='dropdown' />
+                                    <input />
 
                                 </Modalel>
                             </Content>
@@ -100,9 +142,9 @@ const Modal = ({ isOpen, close }) => {
                                 <button onClick={close}> 추가하기</button>
                             </BtnWrap>
                         </ModalCom>
-                    </>
+                    </ReactTransitionGroup>
                     :
-                    null
+                    <ReactTransitionGroup transitionName={'Modal-anim'} transitionEnterTimeout={200} transitionLeaveTimeout={200} />
             }
         </>
     )
