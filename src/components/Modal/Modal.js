@@ -5,6 +5,8 @@ import ReactTransitionGroup from 'react-addons-css-transition-group';
 
 import dropOption from '../../data/delivery.json';
 
+
+
 const Modal = ({ isOpen, close }) => {
 
 
@@ -121,24 +123,34 @@ const Modal = ({ isOpen, close }) => {
         font-size:14.7px;
         padding:2px 0 2px 3px;
         width:193px;
+        border:2px solid #eeeeee; 
+        border-radius:3px;
         &:focus{
             outline:none;
+            border:2px solid #ffcc00;
         }
+         ::-webkit-inner-spin-button,
+         ::-webkit-outer-spin-button{
+        -webkit-appearance: none; 
+         }
+
     `
 
     const Drop = styled.select`
         font-size:14.7px;
-        padding:0 0 3px 1px;
+        padding:0 0 3px 1px; 
         width:200px;
         float:right;
+        border:2px solid #eeeeee;
+        border-radius:3px;
         &:focus{
             outline:none;
+            border:2px solid #ffcc00;
         }
     `
 
     //const [name, setName] = useState('');
     //const [invnum, setInvnum] = useState('');
-
 
     return (
         <>
@@ -159,7 +171,7 @@ const Modal = ({ isOpen, close }) => {
                                 </Modalel>
                                 <Modalel>
                                     <Eltitle>운송장 번호</Eltitle>
-                                    <ElInput placeholder='숫자만 입력 가능' />
+                                    <ElInput type='number' placeholder='운송장 번호 입력' />
                                 </Modalel>
                                 <Modalel>
                                     <Eltitle>택배사 이름</Eltitle>
